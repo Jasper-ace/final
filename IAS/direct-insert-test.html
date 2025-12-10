@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Direct Insert Test</title>
+    <style>
+        body { font-family: Arial; max-width: 800px; margin: 50px auto; padding: 20px; }
+        button { padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
+        .log { background: #f3f4f6; padding: 15px; border-radius: 5px; margin-top: 20px; white-space: pre-wrap; font-family: monospace; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <h1>Direct Database Insert Test</h1>
+    
+    <button onclick="testDirectInsert()">1. Insert Test Record</button>
+    <button onclick="viewAllRecords()">2. View All Records</button>
+    <button onclick="deleteTestRecords()">3. Delete Test Records</button>
+    
+    <div id="log" class="log">Waiting for action...</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase-config.js"></script>
+    <script>
+        const log = document.getElementById('log');
+        
+        function addLog(message) {
+            log.textContent += '\n' + message;
+            console.log(message);
+        }
+
+        async function testDirectInsert() {
+            log.textContent = 'Starting direct insert test...\n';
+            
+            try {
+                // Get session
+                addLog('1. Getting session...');
+                const { data: { session }, error: sessionError } = await window.supabaseDirect.auth.getSession();
+                
+                if (sessionError) throw sessionError;
+                
+                if (!session || !session.user) {
+                    addLog('❌ ERROR: Not logged in!');
+                    return;
+                }
+                
+                addLog(`✅ Logged in as: ${session.user.email}`);
+                addLog(`   User ID: ${session.user.id}`);
+                
+                // Try to insert
+                addLog('\n2. Attempting to insert record...');
+                const insertData = {
+                    user_id: session.user.id,
+                    course_id: 'test-course-' + Date.now(),
+                    progress: 0,
+                    enrolled_at: new Date().toISOString()
+                };
+                
+                addLog(`   Data: ${JSON.stringify(insertData, null, 2)}`);
+                
+                const { data, error } = await window.supabaseDirect
+                    .from('user_courses')
+                    .insert([insertData])
+                    .select();
+                
+                if (error) {
+                    addLog(`❌ INSERT ERROR: ${error.message}`);
+                    addLog(`   Code: ${error.code}`);
+                    addLog(`   Details: ${JSON.stringify(error.details)}`);
+                    addLog(`   Hint: ${error.hint}`);
+                    return;
+                }
+                
+                addLog(`✅ SUCCESS! Inserted record:`);
+                addLog(`   ${JSON.stringify(data, null, 2)}`);
+                
+            } catch (error) {
+                addLog(`❌ EXCEPTION: ${error.message}`);
+                addLog(`   ${error.stack}`);
+            }
+        }
+
+        async function viewAllRecords() {
+            log.textContent = 'Fetching all records...\n';
+            
+            try {
+                const { data: { session } } = await window.supabaseDirect.auth.getSession();
+                
+                if (!session || !session.user) {
+                    addLog('❌ Not logged in!');
+                    return;
+                }
+                
+                addLog(`Fetching records for user: ${session.user.id}\n`);
+                
+                const { data, error } = await window.supabaseDirect
+                    .from('user_courses')
+                    .select('*')
+                    .eq('user_id', session.user.id)
+                    .order('created_at', { ascending: false });
+                
+                if (error) {
+                    addLog(`❌ SELECT ERROR: ${error.message}`);
+                    return;
+                }
+                
+                if (!data || data.length === 0) {
+                    addLog('ℹ️ No records found.');
+                    return;
+                }
+                
+                addLog(`✅ Found ${data.length} record(s):\n`);
+                data.forEach((record, index) => {
+                    addLog(`${index + 1}. ID: ${record.id}`);
+                    addLog(`   Course: ${record.course_id}`);
+                    addLog(`   Progress: ${record.progress}%`);
+                    addLog(`   Enrolled: ${record.enrolled_at}`);
+                    addLog('');
+                });
+                
+            } catch (error) {
+                addLog(`❌ EXCEPTION: ${error.message}`);
+            }
+        }
+
+        async function deleteTestRecords() {
+            log.textContent = 'Deleting test records...\n';
+            
+            try {
+                const { data: { session } } = await window.supabaseDirect.auth.getSession();
+                
+                if (!session || !session.user) {
+                    addLog('❌ Not logged in!');
+                    return;
+                }
+                
+                const { data, error } = await window.supabaseDirect
+                    .from('user_courses')
+                    .delete()
+                    .eq('user_id', session.user.id)
+                    .like('course_id', 'test-course-%')
+                    .select();
+                
+                if (error) {
+                    addLog(`❌ DELETE ERROR: ${error.message}`);
+                    return;
+                }
+                
+                addLog(`✅ Deleted ${data ? data.length : 0} test record(s)`);
+                
+            } catch (error) {
+                addLog(`❌ EXCEPTION: ${error.message}`);
+            }
+        }
+    </script>
+</body>
+</html>

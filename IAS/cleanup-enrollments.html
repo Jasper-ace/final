@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cleanup Enrollments</title>
+    <style>
+        body { font-family: Arial; max-width: 600px; margin: 50px auto; padding: 20px; }
+        button { padding: 10px 20px; background: #ef4444; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 10px 5px; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 5px; background: #f3f4f6; }
+    </style>
+</head>
+<body>
+    <h1>Cleanup Old Enrollments</h1>
+    <p>This will delete enrollments with invalid course IDs (like "web-dev-bootcamp" and "test-course-*")</p>
+    
+    <button onclick="cleanupOldRecords()">Delete Invalid Enrollments</button>
+    
+    <div id="result" class="result" style="display: none;"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase-config.js"></script>
+    <script>
+        async function cleanupOldRecords() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+            resultDiv.textContent = 'Cleaning up...';
+            
+            try {
+                const { data: { session } } = await window.supabaseDirect.auth.getSession();
+                
+                if (!session || !session.user) {
+                    resultDiv.textContent = '❌ Please login first!';
+                    return;
+                }
+
+                // Get all enrollments
+                const { data: allRecords } = await window.supabaseDirect
+                    .from('user_courses')
+                    .select('*')
+                    .eq('user_id', session.user.id);
+
+                if (!allRecords || allRecords.length === 0) {
+                    resultDiv.textContent = 'No records found.';
+                    return;
+                }
+
+                // Find invalid records (non-numeric course_id)
+                const invalidRecords = allRecords.filter(r => isNaN(parseInt(r.course_id)));
+                
+                if (invalidRecords.length === 0) {
+                    resultDiv.textContent = '✅ No invalid records found. All enrollments are valid!';
+                    return;
+                }
+
+                // Delete invalid records
+                const idsToDelete = invalidRecords.map(r => r.id);
+                
+                const { error } = await window.supabaseDirect
+                    .from('user_courses')
+                    .delete()
+                    .in('id', idsToDelete);
+
+                if (error) {
+                    resultDiv.textContent = `❌ Error: ${error.message}`;
+                    return;
+                }
+
+                resultDiv.textContent = `✅ Deleted ${invalidRecords.length} invalid enrollment(s):\n\n` +
+                    invalidRecords.map(r => `- ${r.course_id}`).join('\n') +
+                    '\n\nYou can now go to My Courses page!';
+
+            } catch (error) {
+                resultDiv.textContent = `❌ Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

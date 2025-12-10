@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - CodeMaster Academy</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/payment-modal.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-code"></i>
+                <span>CodeMaster Academy</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#courses">Courses</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="btn-login">Login</a></li>
+                <li><a href="#" class="btn-signup">Sign Up</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Page Content -->
+    <main class="profile-page">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="breadcrumb">
+                    <a href="index.html">Home</a> > <span>My Profile</span>
+                </div>
+                <h1><i class="fas fa-user"></i> My Profile</h1>
+                <p>Manage your account information and preferences</p>
+            </div>
+
+            <!-- Profile Content -->
+            <div class="profile-content">
+                <!-- Profile Sidebar -->
+                <div class="profile-sidebar">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <div class="avatar-circle">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <button class="btn-change-avatar">
+                                <i class="fas fa-camera"></i> Change Photo
+                            </button>
+                        </div>
+                        <div class="profile-info">
+                            <h3 id="profileDisplayName">Loading...</h3>
+                            <p id="profileDisplayEmail">Loading...</p>
+                            <div class="profile-stats">
+                                <div class="stat">
+                                    <span class="stat-number" id="enrolledCount">0</span>
+                                    <span class="stat-label">Courses</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number" id="completedCount">0</span>
+                                    <span class="stat-label">Completed</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number" id="hoursLearned">0</span>
+                                    <span class="stat-label">Hours</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Menu -->
+                    <div class="profile-nav">
+                        <a href="#" class="nav-item active" data-tab="profile-info">
+                            <i class="fas fa-user"></i> Profile Information
+                        </a>
+                        <a href="#" class="nav-item" data-tab="learning-progress">
+                            <i class="fas fa-chart-line"></i> Learning Progress
+                        </a>
+                        <a href="#" class="nav-item" data-tab="achievements">
+                            <i class="fas fa-trophy"></i> Achievements
+                        </a>
+                        <a href="#" class="nav-item" data-tab="account-security">
+                            <i class="fas fa-shield-alt"></i> Account Security
+                        </a>
+                        <a href="settings.html" class="nav-item">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Profile Main Content -->
+                <div class="profile-main">
+                    <!-- Profile Information Tab -->
+                    <div class="tab-content active" id="profile-info">
+                        <div class="content-header">
+                            <h2>Profile Information</h2>
+                            <p>Update your personal information and social links</p>
+                        </div>
+
+                        <form id="profileForm" class="profile-form">
+                            <div class="form-section">
+                                <h3>Personal Information</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="fullName">Full Name</label>
+                                        <input type="text" id="fullName" name="fullName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email" name="email" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bio">Bio</label>
+                                    <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="location">Location</label>
+                                        <input type="text" id="location" name="location" placeholder="City, Country">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="website">Website</label>
+                                        <input type="url" id="website" name="website" placeholder="https://yourwebsite.com">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Social Links</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="github">
+                                            <i class="fab fa-github"></i> GitHub
+                                        </label>
+                                        <input type="text" id="github" name="github" placeholder="github.com/username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="linkedin">
+                                            <i class="fab fa-linkedin"></i> LinkedIn
+                                        </label>
+                                        <input type="text" id="linkedin" name="linkedin" placeholder="linkedin.com/in/username">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="twitter">
+                                        <i class="fab fa-twitter"></i> Twitter
+                                    </label>
+                                    <input type="text" id="twitter" name="twitter" placeholder="twitter.com/username">
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary" id="saveProfileBtn">
+                                    <span class="btn-text">
+                                        <i class="fas fa-save"></i> Save Changes
+                                    </span>
+                                    <span class="btn-loading" style="display: none;">
+                                        <i class="fas fa-spinner fa-spin"></i> Saving...
+                                    </span>
+                                </button>
+                                <button type="button" class="btn btn-secondary" onclick="resetForm()">
+                                    <i class="fas fa-undo"></i> Reset
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Learning Progress Tab -->
+                    <div class="tab-content" id="learning-progress">
+                        <div class="content-header">
+                            <h2>Learning Progress</h2>
+                            <p>Track your learning journey and course progress</p>
+                        </div>
+
+                        <div class="progress-overview">
+                            <div class="progress-card">
+                                <div class="progress-icon">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                                <div class="progress-info">
+                                    <h3>Courses in Progress</h3>
+                                    <div class="progress-number" id="coursesInProgress">0</div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="progress-card">
+                                <div class="progress-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="progress-info">
+                                    <h3>Courses Completed</h3>
+                                    <div class="progress-number" id="coursesCompleted">0</div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="progress-card">
+                                <div class="progress-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="progress-info">
+                                    <h3>Total Hours</h3>
+                                    <div class="progress-number" id="totalHours">0</div>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="learning-chart">
+                            <h3>Learning Activity</h3>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Learning activity chart will be displayed here</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Achievements Tab -->
+                    <div class="tab-content" id="achievements">
+                        <div class="content-header">
+                            <h2>Achievements</h2>
+                            <p>Your learning milestones and badges</p>
+                        </div>
+
+                        <div class="achievements-grid">
+                            <div class="achievement-badge earned">
+                                <div class="badge-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="badge-info">
+                                    <h4>First Course</h4>
+                                    <p>Enrolled in your first course</p>
+                                    <span class="badge-date">Earned today</span>
+                                </div>
+                            </div>
+
+                            <div class="achievement-badge">
+                                <div class="badge-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <div class="badge-info">
+                                    <h4>7-Day Streak</h4>
+                                    <p>Learn for 7 consecutive days</p>
+                                    <span class="badge-progress">Progress: 0/7 days</span>
+                                </div>
+                            </div>
+
+                            <div class="achievement-badge">
+                                <div class="badge-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="badge-info">
+                                    <h4>Course Master</h4>
+                                    <p>Complete your first course</p>
+                                    <span class="badge-progress">Not started</span>
+                                </div>
+                            </div>
+
+                            <div class="achievement-badge">
+                                <div class="badge-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="badge-info">
+                                    <h4>Fast Learner</h4>
+                                    <p>Complete 3 courses in a month</p>
+                                    <span class="badge-progress">Progress: 0/3 courses</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Security Tab -->
+                    <div class="tab-content" id="account-security">
+                        <div class="content-header">
+                            <h2>Account Security</h2>
+                            <p>Manage your account security and privacy settings</p>
+                        </div>
+
+                        <div class="security-section">
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <h4>Change Password</h4>
+                                    <p>Update your password to keep your account secure</p>
+                                </div>
+                                <button class="btn btn-secondary" onclick="showChangePasswordForm()">
+                                    <i class="fas fa-key"></i> Change Password
+                                </button>
+                            </div>
+
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <h4>Two-Factor Authentication</h4>
+                                    <p>Add an extra layer of security to your account</p>
+                                </div>
+                                <button class="btn btn-secondary" disabled>
+                                    <i class="fas fa-shield-alt"></i> Coming Soon
+                                </button>
+                            </div>
+
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <h4>Login Sessions</h4>
+                                    <p>View and manage your active login sessions</p>
+                                </div>
+                                <button class="btn btn-secondary" onclick="showLoginSessions()">
+                                    <i class="fas fa-desktop"></i> View Sessions
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="danger-zone">
+                            <h3>Danger Zone</h3>
+                            <div class="security-item">
+                                <div class="security-info">
+                                    <h4>Delete Account</h4>
+                                    <p>Permanently delete your account and all associated data</p>
+                                </div>
+                                <button class="btn btn-danger" onclick="showDeleteAccountConfirm()">
+                                    <i class="fas fa-trash"></i> Delete Account
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>CodeMaster Academy</span>
+                    </div>
+                    <p>Empowering the next generation of programmers with world-class education and practical skills.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#courses">Courses</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CodeMaster Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Scripts -->
+    <script src="assets/js/supabase-config.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/profile-manager.js"></script>
+    <script src="assets/js/settings-manager.js"></script>
+    <script src="assets/js/courses-data.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Profile page specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeProfilePage();
+        });
+
+        function initializeProfilePage() {
+            // Check if user is authenticated
+            if (!window.supabaseAuth || !window.supabaseAuth.isAuthenticated()) {
+                // Redirect to home page if not logged in
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Load user profile data
+            loadProfileData();
+            
+            // Initialize tab navigation
+            initializeTabNavigation();
+            
+            // Initialize profile form
+            initializeProfileForm();
+        }
+
+        function loadProfileData() {
+            const currentUser = window.supabaseAuth.getCurrentUser();
+            if (currentUser) {
+                document.getElementById('profileDisplayName').textContent = 
+                    currentUser.user_metadata?.full_name || 'User';
+                document.getElementById('profileDisplayEmail').textContent = currentUser.email;
+                
+                // Pre-fill form fields
+                document.getElementById('fullName').value = 
+                    currentUser.user_metadata?.full_name || '';
+                document.getElementById('email').value = currentUser.email;
+            }
+        }
+
+        function initializeTabNavigation() {
+            const navItems = document.querySelectorAll('.profile-nav .nav-item');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    const tabId = item.getAttribute('data-tab');
+                    if (!tabId) return;
+
+                    // Remove active class from all nav items and tabs
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    tabContents.forEach(tab => tab.classList.remove('active'));
+
+                    // Add active class to clicked nav item and corresponding tab
+                    item.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        }
+
+        function initializeProfileForm() {
+            const form = document.getElementById('profileForm');
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await saveProfile();
+            });
+        }
+
+        async function saveProfile() {
+            const form = document.getElementById('profileForm');
+            const formData = new FormData(form);
+            const profileData = Object.fromEntries(formData.entries());
+
+            // Set loading state
+            setLoadingState('saveProfileBtn', true);
+
+            try {
+                // Here you would save to your database
+                // For now, we'll simulate saving
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                showNotification('Profile updated successfully!', 'success');
+                
+                // Update display name
+                document.getElementById('profileDisplayName').textContent = profileData.fullName;
+                
+            } catch (error) {
+                console.error('Error saving profile:', error);
+                showNotification('Failed to update profile. Please try again.', 'error');
+            } finally {
+                setLoadingState('saveProfileBtn', false);
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('profileForm').reset();
+            loadProfileData();
+        }
+
+        function setLoadingState(buttonId, isLoading) {
+            const button = document.getElementById(buttonId);
+            if (!button) return;
+
+            const btnText = button.querySelector('.btn-text');
+            const btnLoading = button.querySelector('.btn-loading');
+
+            if (isLoading) {
+                button.disabled = true;
+                if (btnText) btnText.style.display = 'none';
+                if (btnLoading) btnLoading.style.display = 'inline-flex';
+            } else {
+                button.disabled = false;
+                if (btnText) btnText.style.display = 'inline-flex';
+                if (btnLoading) btnLoading.style.display = 'none';
+            }
+        }
+
+        function showChangePasswordForm() {
+            showNotification('Password change feature will be available soon!', 'info');
+        }
+
+        function showLoginSessions() {
+            showNotification('Login sessions feature will be available soon!', 'info');
+        }
+
+        function showDeleteAccountConfirm() {
+            if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+                showNotification('Account deletion feature will be available soon. Please contact support for now.', 'info');
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            // Use the global notification system if available
+            if (window.showNotification) {
+                window.showNotification(message, type);
+            } else {
+                alert(message);
+            }
+        }
+    </script>
+</body>
+</html>

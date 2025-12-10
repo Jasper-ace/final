@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete JavaScript Mastery - CodeMaster Academy</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-code"></i>
+                <span>CodeMaster Academy</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="btn-login">Login</a></li>
+                <li><a href="#" class="btn-signup">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Course Hero -->
+    <section class="course-hero">
+        <div class="container">
+            <div class="course-hero-content">
+                <div class="course-info">
+                    <div class="breadcrumb">
+                        <a href="index.html">Home</a> > <a href="#courses">Courses</a> > <span>JavaScript Mastery</span>
+                    </div>
+                    <h1>Complete JavaScript Mastery</h1>
+                    <p class="course-subtitle">Learn JavaScript from scratch to advanced concepts including ES6+, DOM manipulation, and modern frameworks.</p>
+                    
+                    <div class="course-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-star"></i>
+                            <span>4.9 (2,340 reviews)</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-users"></i>
+                            <span>15,420 students</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>40 hours</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-globe"></i>
+                            <span>English</span>
+                        </div>
+                    </div>
+
+                    <div class="instructor-info">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="John Smith">
+                        <div>
+                            <h4>John Smith</h4>
+                            <p>Senior JavaScript Developer at Google</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-card-sticky">
+                    <div class="course-preview">
+                        <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=250&fit=crop" alt="JavaScript Course">
+                        <div class="play-button">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="course-pricing">
+                        <div class="price">
+                            <span class="price-old">$199</span>
+                            <span class="price-current">$99</span>
+                            <span class="discount">50% OFF</span>
+                        </div>
+                        <button class="btn btn-primary btn-enroll">Enroll Now</button>
+                        <button class="btn btn-secondary btn-wishlist">
+                            <i class="fas fa-heart"></i> Add to Wishlist
+                        </button>
+                    </div>
+                    <div class="course-includes">
+                        <h4>This course includes:</h4>
+                        <ul>
+                            <li><i class="fas fa-video"></i> 40 hours on-demand video</li>
+                            <li><i class="fas fa-file-alt"></i> 25 articles</li>
+                            <li><i class="fas fa-download"></i> 15 downloadable resources</li>
+                            <li><i class="fas fa-mobile-alt"></i> Access on mobile and TV</li>
+                            <li><i class="fas fa-infinity"></i> Full lifetime access</li>
+                            <li><i class="fas fa-certificate"></i> Certificate of completion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <section class="course-content">
+        <div class="container">
+            <div class="content-tabs">
+                <button class="tab-btn active" data-tab="overview">Overview</button>
+                <button class="tab-btn" data-tab="curriculum">Curriculum</button>
+                <button class="tab-btn" data-tab="instructor">Instructor</button>
+                <button class="tab-btn" data-tab="reviews">Reviews</button>
+            </div>
+
+            <div class="tab-content active" id="overview">
+                <div class="overview-section">
+                    <h2>What you'll learn</h2>
+                    <div class="learning-objectives">
+                        <div class="objective">
+                            <i class="fas fa-check"></i>
+                            <span>Master JavaScript fundamentals and advanced concepts</span>
+                        </div>
+                        <div class="objective">
+                            <i class="fas fa-check"></i>
+                            <span>Build interactive web applications with DOM manipulation</span>
+                        </div>
+                        <div class="objective">
+                            <i class="fas fa-check"></i>
+                            <span>Understand ES6+ features and modern JavaScript</span>
+                        </div>
+                        <div class="objective">
+                            <i class="fas fa-check"></i>
+                            <span>Work with APIs and asynchronous programming</span>
+                        </div>
+                        <div class="objective">
+                            <i class="fas fa-check"></i>
+                            <span>Debug and optimize JavaScript applications</span>
+                        </div>
+                        <div class="objective">
+                            <i class="fas fa-check"></i>
+                            <span>Prepare for JavaScript interviews and certifications</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overview-section">
+                    <h2>Course Description</h2>
+                    <p>This comprehensive JavaScript course is designed to take you from a complete beginner to an advanced JavaScript developer. You'll learn everything you need to know about JavaScript programming, from basic syntax to advanced concepts like closures, prototypes, and asynchronous programming.</p>
+                    
+                    <p>The course is structured in a way that builds upon previous concepts, ensuring you have a solid foundation before moving to more complex topics. Each section includes hands-on projects and exercises to reinforce your learning.</p>
+
+                    <h3>Who this course is for:</h3>
+                    <ul>
+                        <li>Complete beginners who want to learn JavaScript from scratch</li>
+                        <li>Developers who want to strengthen their JavaScript skills</li>
+                        <li>Anyone preparing for JavaScript interviews</li>
+                        <li>Web developers looking to build interactive applications</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content" id="curriculum">
+                <div class="curriculum-section">
+                    <h2>Course Curriculum</h2>
+                    <p>8 sections • 120 lectures • 40h 15m total length</p>
+                    
+                    <div class="curriculum-modules">
+                        <div class="module">
+                            <div class="module-header">
+                                <h3><i class="fas fa-play-circle"></i> Introduction to JavaScript</h3>
+                                <span>8 lectures • 2h 30m</span>
+                            </div>
+                            <div class="module-content">
+                                <div class="lecture">
+                                    <i class="fas fa-play"></i>
+                                    <span>What is JavaScript?</span>
+                                    <span class="duration">15:30</span>
+                                </div>
+                                <div class="lecture">
+                                    <i class="fas fa-play"></i>
+                                    <span>Setting up the Development Environment</span>
+                                    <span class="duration">12:45</span>
+                                </div>
+                                <div class="lecture">
+                                    <i class="fas fa-play"></i>
+                                    <span>Your First JavaScript Program</span>
+                                    <span class="duration">18:20</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="module">
+                            <div class="module-header">
+                                <h3><i class="fas fa-play-circle"></i> JavaScript Fundamentals</h3>
+                                <span>15 lectures • 5h 45m</span>
+                            </div>
+                        </div>
+
+                        <div class="module">
+                            <div class="module-header">
+                                <h3><i class="fas fa-play-circle"></i> Functions and Scope</h3>
+                                <span>12 lectures • 4h 20m</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="instructor">
+                <div class="instructor-section">
+                    <div class="instructor-profile">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="John Smith">
+                        <div class="instructor-details">
+                            <h2>John Smith</h2>
+                            <p class="instructor-title">Senior JavaScript Developer at Google</p>
+                            <div class="instructor-stats">
+                                <div class="stat">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9 Instructor Rating</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-users"></i>
+                                    <span>50,000+ Students</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-play-circle"></i>
+                                    <span>15 Courses</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="instructor-bio">
+                        <p>John is a passionate JavaScript developer with over 8 years of experience building web applications at scale. He currently works as a Senior Developer at Google, where he leads a team developing cutting-edge web technologies.</p>
+                        
+                        <p>John has taught programming to thousands of students worldwide and is known for his clear, practical teaching style. He believes in learning by doing and structures his courses around real-world projects and examples.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="reviews">
+                <div class="reviews-section">
+                    <div class="reviews-summary">
+                        <div class="rating-overview">
+                            <div class="rating-score">
+                                <span class="score">4.9</span>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span class="total">2,340 reviews</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reviews-list">
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=50&h=50&fit=crop&crop=face" alt="Student">
+                                <div class="review-info">
+                                    <h4>Sarah Johnson</h4>
+                                    <div class="review-rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span>2 weeks ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Excellent course! John explains complex concepts in a very clear and understandable way. The projects are practical and really help solidify the learning. Highly recommended!</p>
+                        </div>
+
+                        <div class="review">
+                            <div class="review-header">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face" alt="Student">
+                                <div class="review-info">
+                                    <h4>Mike Chen</h4>
+                                    <div class="review-rating">
+                                        <div class="stars">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <span>1 month ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>This course transformed my understanding of JavaScript. I went from struggling with basic concepts to building complex applications. The instructor's teaching style is fantastic!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Xendit Payment Styles -->
+    <link rel="stylesheet" href="assets/css/xendit-payment.css">
+    
+    <!-- Application Scripts -->
+    <script src="assets/js/supabase-config.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/xendit-payment.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/course-detail.js"></script>
+</body>
+</html>

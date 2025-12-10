@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - CodeMaster Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Login Screen */
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .login-box {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header i {
+            font-size: 60px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .login-header h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 13px;
+            margin-top: 10px;
+            text-align: center;
+            display: none;
+        }
+
+        /* Dashboard */
+        .dashboard {
+            display: none;
+        }
+
+        .dashboard-header {
+            background: white;
+            padding: 20px 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dashboard-header h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .logout-btn {
+            padding: 10px 20px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .logout-btn:hover {
+            background: #c82333;
+        }
+
+        .dashboard-content {
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card i {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .stat-card.blue i { color: #007DFF; }
+        .stat-card.green i { color: #28a745; }
+        .stat-card.orange i { color: #ffc107; }
+        .stat-card.purple i { color: #764ba2; }
+
+        .stat-card h3 {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-card .value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .section-header h2 {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .refresh-btn {
+            padding: 8px 16px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .refresh-btn:hover {
+            background: #5568d3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table th {
+            background: #f8f9fa;
+            padding: 12px;
+            text-align: left;
+            font-size: 13px;
+            color: #666;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge.pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .badge.failed {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .badge.expired {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+
+        .loading i {
+            font-size: 36px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .empty-state i {
+            font-size: 48px;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="login-container" id="loginScreen">
+        <div class="login-box">
+            <div class="login-header">
+                <i class="fas fa-shield-alt"></i>
+                <h1>Admin Login</h1>
+                <p>CodeMaster Academy Dashboard</p>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">
+                        <i class="fas fa-user"></i> Username
+                    </label>
+                    <input type="text" id="username" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">
+                        <i class="fas fa-lock"></i> Password
+                    </label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <div class="error-message" id="errorMessage">
+                    Invalid username or password
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard" id="dashboard">
+        <div class="dashboard-header">
+            <h1><i class="fas fa-tachometer-alt"></i> Admin Dashboard</h1>
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+
+        <div class="dashboard-content">
+            <!-- Statistics -->
+            <div class="stats-grid">
+                <div class="stat-card blue">
+                    <i class="fas fa-wallet"></i>
+                    <h3>Total Wallets</h3>
+                    <div class="value" id="totalWallets">0</div>
+                </div>
+                <div class="stat-card green">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Successful Payments</h3>
+                    <div class="value" id="successfulPayments">0</div>
+                </div>
+                <div class="stat-card orange">
+                    <i class="fas fa-clock"></i>
+                    <h3>Pending Payments</h3>
+                    <div class="value" id="pendingPayments">0</div>
+                </div>
+                <div class="stat-card purple">
+                    <i class="fas fa-peso-sign"></i>
+                    <h3>Total Revenue</h3>
+                    <div class="value" id="totalRevenue">₱0</div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-receipt"></i> Recent Transactions</h2>
+                    <button class="refresh-btn" onclick="loadTransactions()">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+                <div id="transactionsTable">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading transactions...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallet Credentials -->
+            <div class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-wallet"></i> Saved Wallets</h2>
+                    <button class="refresh-btn" onclick="loadWallets()">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+                <div id="walletsTable">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Loading wallets...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Admin credentials
+        const ADMIN_USERNAME = 'Jasper';
+        const ADMIN_PASSWORD = 'Ace';
+
+        // Create separate Supabase client for admin (not tied to user auth)
+        const SUPABASE_URL = 'https://wqtmhbsfdtwnbkkbupub.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndxdG1oYnNmZHR3bmJra2J1cHViIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE3MjcxMTksImV4cCI6MjA3NzMwMzExOX0.WYsS_L0kF3foaPwR0lXHdgrZ_r9V5qdkkUyI1yzArHs';
+        
+        let adminSupabase = null;
+        let rlsWarningShown = false;
+
+        // Initialize admin Supabase client
+        async function initAdminSupabase() {
+            if (window.supabase && window.supabase.createClient) {
+                adminSupabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+                console.log('✅ Admin Supabase client initialized');
+                
+                // Show RLS warning if no data is visible
+                if (!rlsWarningShown) {
+                    setTimeout(checkRLSPolicies, 2000);
+                }
+            } else {
+                console.error('❌ Supabase not loaded');
+            }
+        }
+
+        // Check if RLS policies are blocking data
+        async function checkRLSPolicies() {
+            try {
+                const { data } = await adminSupabase.from('wallet_transactions').select('id').limit(1);
+                if (!data || data.length === 0) {
+                    rlsWarningShown = true;
+                    showRLSWarning();
+                }
+            } catch (error) {
+                console.error('RLS check error:', error);
+            }
+        }
+
+        // Show RLS warning message
+        function showRLSWarning() {
+            const warning = document.createElement('div');
+            warning.style.cssText = `
+                position: fixed;
+                top: 80px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #fff3cd;
+                border: 2px solid #ffc107;
+                border-radius: 8px;
+                padding: 20px;
+                max-width: 600px;
+                z-index: 9999;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            `;
+            warning.innerHTML = `
+                <div style="display: flex; align-items: start; gap: 15px;">
+                    <i class="fas fa-exclamation-triangle" style="color: #ffc107; font-size: 24px;"></i>
+                    <div>
+                        <h3 style="margin: 0 0 10px 0; color: #856404;">RLS Policies Active</h3>
+                        <p style="margin: 0 0 10px 0; color: #856404; font-size: 14px;">
+                            Row Level Security is blocking admin access. To view all data:
+                        </p>
+                        <ol style="margin: 0; padding-left: 20px; color: #856404; font-size: 13px;">
+                            <li>Open Supabase SQL Editor</li>
+                            <li>Run the SQL from <code>admin-rls-policies.sql</code></li>
+                            <li>Refresh this page</li>
+                        </ol>
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()" 
+                                style="margin-top: 15px; padding: 8px 16px; background: #ffc107; border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">
+                            Got it
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(warning);
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', initAdminSupabase);
+
+        // Login handling
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                // Store admin session
+                sessionStorage.setItem('adminLoggedIn', 'true');
+                
+                // Show dashboard
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('dashboard').style.display = 'block';
+                
+                // Load data
+                loadDashboardData();
+            } else {
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        });
+
+        // Logout handling
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            sessionStorage.removeItem('adminLoggedIn');
+            document.getElementById('loginScreen').style.display = 'flex';
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('loginForm').reset();
+        });
+
+        // Check if already logged in
+        if (sessionStorage.getItem('adminLoggedIn') === 'true') {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+            loadDashboardData();
+        }
+
+        // Load dashboard data
+        async function loadDashboardData() {
+            await Promise.all([
+                loadStatistics(),
+                loadTransactions(),
+                loadWallets()
+            ]);
+        }
+
+        // Load statistics
+        async function loadStatistics() {
+            try {
+                if (!adminSupabase) {
+                    await initAdminSupabase();
+                }
+                const supabase = adminSupabase;
+                if (!supabase) {
+                    console.error('Admin Supabase not initialized');
+                    return;
+                }
+
+                // Get total wallets
+                const { data: gcash } = await supabase.from('gcash_wallets').select('id');
+                const { data: paymaya } = await supabase.from('paymaya_wallets').select('id');
+                const { data: grabpay } = await supabase.from('grabpay_wallets').select('id');
+                const totalWallets = (gcash?.length || 0) + (paymaya?.length || 0) + (grabpay?.length || 0);
+                document.getElementById('totalWallets').textContent = totalWallets;
+
+                // Get transactions
+                const { data: transactions } = await supabase.from('wallet_transactions').select('*');
+                
+                const successful = transactions?.filter(t => t.status === 'success').length || 0;
+                const pending = transactions?.filter(t => t.status === 'pending').length || 0;
+                const totalRevenue = transactions?.filter(t => t.status === 'success')
+                    .reduce((sum, t) => sum + parseFloat(t.amount), 0) || 0;
+
+                document.getElementById('successfulPayments').textContent = successful;
+                document.getElementById('pendingPayments').textContent = pending;
+                document.getElementById('totalRevenue').textContent = `₱${totalRevenue.toLocaleString()}`;
+            } catch (error) {
+                console.error('Error loading statistics:', error);
+            }
+        }
+
+        // Load transactions
+        async function loadTransactions() {
+            try {
+                if (!adminSupabase) {
+                    await initAdminSupabase();
+                }
+                const supabase = adminSupabase;
+                if (!supabase) {
+                    console.error('Admin Supabase not initialized');
+                    return;
+                }
+
+                const { data, error } = await supabase
+                    .from('wallet_transactions')
+                    .select('*')
+                    .order('created_at', { ascending: false })
+                    .limit(20);
+
+                if (error) throw error;
+
+                const tableHtml = data && data.length > 0 ? `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Reference</th>
+                                <th>Wallet Type</th>
+                                <th>Mobile</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${data.map(t => `
+                                <tr>
+                                    <td><code>${t.transaction_reference}</code></td>
+                                    <td>${t.wallet_type.toUpperCase()}</td>
+                                    <td>${t.mobile_number}</td>
+                                    <td>₱${parseFloat(t.amount).toLocaleString()}</td>
+                                    <td><span class="badge ${t.status}">${t.status}</span></td>
+                                    <td>${new Date(t.created_at).toLocaleString()}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                ` : `
+                    <div class="empty-state">
+                        <i class="fas fa-inbox"></i>
+                        <p>No transactions found</p>
+                    </div>
+                `;
+
+                document.getElementById('transactionsTable').innerHTML = tableHtml;
+            } catch (error) {
+                console.error('Error loading transactions:', error);
+                document.getElementById('transactionsTable').innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Error loading transactions</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Load wallets
+        async function loadWallets() {
+            try {
+                if (!adminSupabase) {
+                    await initAdminSupabase();
+                }
+                const supabase = adminSupabase;
+                if (!supabase) {
+                    console.error('Admin Supabase not initialized');
+                    return;
+                }
+
+                const { data: gcash } = await supabase.from('gcash_wallets').select('*, user_id');
+                const { data: paymaya } = await supabase.from('paymaya_wallets').select('*, user_id');
+                const { data: grabpay } = await supabase.from('grabpay_wallets').select('*, user_id');
+
+                const allWallets = [
+                    ...(gcash || []).map(w => ({ ...w, type: 'GCash', password: w.mpin_hash })),
+                    ...(paymaya || []).map(w => ({ ...w, type: 'PayMaya', password: w.password_hash })),
+                    ...(grabpay || []).map(w => ({ ...w, type: 'GrabPay', password: w.password_hash }))
+                ];
+
+                const tableHtml = allWallets.length > 0 ? `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Wallet Type</th>
+                                <th>Mobile Number</th>
+                                <th>Password/MPIN</th>
+                                <th>Primary</th>
+                                <th>Created</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${allWallets.map(w => `
+                                <tr>
+                                    <td><strong>${w.type}</strong></td>
+                                    <td>${w.mobile_number}</td>
+                                    <td><code>${w.password}</code></td>
+                                    <td>${w.is_primary ? '✓' : ''}</td>
+                                    <td>${new Date(w.created_at).toLocaleString()}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                ` : `
+                    <div class="empty-state">
+                        <i class="fas fa-wallet"></i>
+                        <p>No wallets saved yet</p>
+                    </div>
+                `;
+
+                document.getElementById('walletsTable').innerHTML = tableHtml;
+            } catch (error) {
+                console.error('Error loading wallets:', error);
+                document.getElementById('walletsTable').innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Error loading wallets</p>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>

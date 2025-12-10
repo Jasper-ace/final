@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMaster Academy - Professional Programming Courses</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/xendit-payment.css">
+    <link rel="stylesheet" href="assets/css/logout-confirmation.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-code"></i>
+                <span>CodeMaster Academy</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" class="btn-login">Login</a></li>
+                <li><a href="#" class="btn-signup">Sign Up</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Master Programming with 50+ Expert-Led Courses</h1>
+                <p>Learn from industry professionals and advance your coding skills with our comprehensive catalog of
+                    50+ programming courses. From web development to AI, mobile apps to DevOps - we've got you covered.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#courses" class="btn btn-primary" onclick="scrollToCourses()">Browse Courses</a>
+                    <a href="#" class="btn btn-secondary">Free Trial</a>
+
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">50,000+</span>
+                        <span class="stat-label">Students</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Courses</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="window-controls">
+                            <span class="control red"></span>
+                            <span class="control yellow"></span>
+                            <span class="control green"></span>
+                        </div>
+                        <span class="window-title">main.js</span>
+                    </div>
+                    <div class="code-content">
+                        <pre><code><span class="keyword">function</span> <span class="function">learnProgramming</span>() {
+  <span class="keyword">const</span> <span class="variable">skills</span> = [<span class="string">'JavaScript'</span>, <span class="string">'Python'</span>, <span class="string">'React'</span>];
+  <span class="keyword">return</span> <span class="variable">skills</span>.<span class="method">map</span>(<span class="variable">skill</span> => 
+    <span class="template">`Master ${<span class="variable">skill</span>} today!`</span>
+  );
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="courses" class="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>Complete Programming Course Catalog</h2>
+                <p>Master programming with our comprehensive collection of 50+ courses designed by industry experts</p>
+
+                <!-- Course Filters -->
+                <div class="course-filters">
+                    <button class="filter-btn active" data-filter="all">All Courses</button>
+                    <button class="filter-btn" data-filter="beginner">Beginner</button>
+                    <button class="filter-btn" data-filter="intermediate">Intermediate</button>
+                    <button class="filter-btn" data-filter="advanced">Advanced</button>
+                    <button class="filter-btn" data-filter="web">Web Development</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile</button>
+                    <button class="filter-btn" data-filter="data">Data Science</button>
+                    <button class="filter-btn" data-filter="devops">DevOps</button>
+                </div>
+            </div>
+            <div class="courses-grid" id="coursesGrid"></div>
+            <div class="courses-cta">
+                <a href="#" class="btn btn-outline">View All Courses</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose CodeMaster Academy?</h2>
+                <p>We provide the best learning experience for aspiring programmers</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Expert Instructors</h3>
+                    <p>Learn from industry professionals with years of real-world experience in top tech companies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Hands-on Projects</h3>
+                    <p>Build real applications and projects that you can showcase in your portfolio to employers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Industry Certificates</h3>
+                    <p>Earn recognized certificates upon completion that validate your skills to potential employers.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Community Support</h3>
+                    <p>Join a vibrant community of learners and get help from peers and mentors whenever you need it.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Lifetime Access</h3>
+                    <p>Get lifetime access to course materials and updates, learn at your own pace, anytime, anywhere.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Career Support</h3>
+                    <p>Get job placement assistance, resume reviews, and interview preparation to land your dream job.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>CodeMaster Academy</span>
+                    </div>
+                    <p>Empowering the next generation of programmers with world-class education and practical skills.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Courses</h4>
+                    <ul>
+                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="#">Python</a></li>
+                        <li><a href="#">React</a></li>
+                        <li><a href="#">Node.js</a></li>
+                        <li><a href="#">Data Science</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="help-center.html">Help Center</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CodeMaster Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+        <div class="modal-content"
+            style="background: white; margin: 5% auto; padding: 2rem; border-radius: 12px; width: 90%; max-width: 450px; position: relative;">
+            <div class="modal-header"
+                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2 style="margin: 0; color: #333;"><i class="fas fa-sign-in-alt"></i> Welcome Back</h2>
+                <button class="modal-close" onclick="closeModal('loginModal')"
+                    style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #666;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" onsubmit="handleLogin(event)"
+                    style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div class="form-group">
+                        <label for="loginEmail" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">
+                            <i class="fas fa-envelope"></i> Email Address
+                        </label>
+                        <input type="email" id="loginEmail" placeholder="Enter your email" required
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">
+                            <i class="fas fa-lock"></i> Password
+                        </label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: #666;">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" onclick="showForgotPasswordModal(); return false;" style="color: #007bff; text-decoration: none; font-size: 0.9rem;">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" id="loginBtn"
+                        style="width: 100%; padding: 0.875rem; background: #007bff; color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; margin-top: 1rem;">
+                        <span id="loginBtnText">
+                            <i class="fas fa-sign-in-alt"></i> Sign In
+                        </span>
+                        <span id="loginBtnLoading" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Signing in...
+                        </span>
+                    </button>
+
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <p style="margin: 0; color: #666;">Don't have an account?
+                            <a href="#" onclick="switchToSignup()" style="color: #007bff; text-decoration: none;">Create
+                                one here</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="signupModal" class="modal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+        <div class="modal-content"
+            style="background: white; margin: 5% auto; padding: 2rem; border-radius: 12px; width: 90%; max-width: 450px; position: relative;">
+            <div class="modal-header"
+                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2 style="margin: 0; color: #333;"><i class="fas fa-user-plus"></i> Create Account</h2>
+                <button class="modal-close" onclick="closeModal('signupModal')"
+                    style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #666;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="signupForm" onsubmit="handleSignup(event)"
+                    style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div class="form-group">
+                        <label for="signupFullName" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">
+                            <i class="fas fa-user"></i> Full Name
+                        </label>
+                        <input type="text" id="signupFullName" placeholder="Enter your full name" required
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupEmail" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">
+                            <i class="fas fa-envelope"></i> Email Address
+                        </label>
+                        <input type="email" id="signupEmail" placeholder="Enter your email" required
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signupPassword" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">
+                            <i class="fas fa-lock"></i> Password
+                        </label>
+                        <input type="password" id="signupPassword" placeholder="Create a strong password" required
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">
+                            <i class="fas fa-lock"></i> Confirm Password
+                        </label>
+                        <input type="password" id="confirmPassword" placeholder="Confirm your password" required
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div class="form-group" style="margin: 1rem 0;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <span style="color: #666;">I agree to the Terms of Service and Privacy Policy</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" id="signupBtn"
+                        style="width: 100%; padding: 0.875rem; background: #007bff; color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; margin-top: 1rem;">
+                        <span id="signupBtnText">
+                            <i class="fas fa-user-plus"></i> Create Account
+                        </span>
+                        <span id="signupBtnLoading" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Creating account...
+                        </span>
+                    </button>
+
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <p style="margin: 0; color: #666;">Already have an account?
+                            <a href="#" onclick="switchToLogin()" style="color: #007bff; text-decoration: none;">Sign in
+                                here</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000;">
+        <div class="modal-content"
+            style="background: white; margin: 5% auto; padding: 2rem; border-radius: 12px; width: 90%; max-width: 450px; position: relative;">
+            <div class="modal-header"
+                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <h2 style="margin: 0; color: #333;"><i class="fas fa-key"></i> Reset Password</h2>
+                <button class="modal-close" onclick="closeModal('forgotPasswordModal')"
+                    style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #666;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="color: #666; margin-bottom: 1.5rem;">Enter your email address and we'll send you a link to reset your password.</p>
+                <form id="forgotPasswordForm" onsubmit="handleForgotPassword(event)"
+                    style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div class="form-group">
+                        <label for="resetEmail" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">
+                            <i class="fas fa-envelope"></i> Email Address
+                        </label>
+                        <input type="email" id="resetEmail" placeholder="Enter your email" required
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e1e5e9; border-radius: 8px; font-size: 1rem;">
+                        <span id="resetEmailError" style="color: #dc3545; font-size: 0.8rem; display: none;"></span>
+                    </div>
+
+                    <button type="submit" id="resetBtn"
+                        style="width: 100%; padding: 0.875rem; background: #007bff; color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 500; cursor: pointer; margin-top: 1rem;">
+                        <span id="resetBtnText">
+                            <i class="fas fa-paper-plane"></i> Send Reset Link
+                        </span>
+                        <span id="resetBtnLoading" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Sending...
+                        </span>
+                    </button>
+
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <p style="margin: 0; color: #666;">
+                            <a href="#" onclick="backToLogin()" style="color: #007bff; text-decoration: none;">
+                                <i class="fas fa-arrow-left"></i> Back to Sign In
+                            </a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notification" class="notification">
+        <i class="notification-icon fas fa-info-circle"></i>
+        <span class="notification-message"></span>
+        <button class="notification-close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Auth Loading Indicator -->
+    <div id="authLoadingIndicator" style="position: fixed; bottom: 2rem; right: 2rem; z-index: 1100; display: none;">
+        <div
+            style="background: #2563eb; color: white; padding: 0.75rem 1rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 0.5rem;">
+            <i class="fas fa-spinner fa-spin"></i>
+            <span>Initializing authentication...</span>
+        </div>
+    </div>
+
+    <script>
+        // Debug: Check if courses are loading
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('🔍 Checking course system...');
+            setTimeout(() => {
+                console.log('CourseManager exists:', !!window.courseManager);
+                console.log('coursesGrid element:', !!document.getElementById('coursesGrid'));
+                if (window.courseManager) {
+                    console.log('Number of courses:', window.courseManager.courses.length);
+                }
+            }, 1000);
+        });
+
+        // Smooth scroll to courses section
+        function scrollToCourses() {
+            const coursesSection = document.getElementById('courses');
+            if (coursesSection) {
+                coursesSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Test notification system
+        function testNotifications() {
+            console.log('🧪 Testing notification system...');
+
+            showNotification('Welcome to CodeMaster Academy! 🎉', 'success');
+
+            setTimeout(() => showNotification('This is an info notification', 'info'), 1000);
+            setTimeout(() => showNotification('Warning: Please check your settings', 'warning'), 2000);
+            setTimeout(() => showNotification('Error: Something went wrong', 'error'), 3000);
+        }
+
+        // Test function for Stripe modal
+        function testStripeModal() {
+            console.log('🧪 Testing Stripe modal...');
+
+            // Check if user is logged in
+            if (window.supabaseAuth && window.supabaseAuth.isAuthenticated()) {
+                console.log('✅ User is authenticated, showing Stripe modal');
+
+                // Create a test course object
+                const testCourse = {
+                    id: 999,
+                    title: "Test Course - JavaScript Mastery",
+                    instructor: "Test Instructor",
+                    level: "Beginner",
+                    duration: 40,
+                    price: 99,
+                    originalPrice: 199,
+                    rating: 4.9,
+                    image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=400&h=250&fit=crop"
+                };
+
+                // Check if showStripePaymentModal function exists
+                if (typeof showStripePaymentModal === 'function') {
+                    showStripePaymentModal(testCourse);
+                } else {
+                    console.error('❌ showStripePaymentModal function not found');
+                    alert('Stripe modal function not loaded. Check console for details.');
+                }
+            } else {
+                console.log('❌ User not authenticated');
+                alert('Please log in first to test the payment modal.');
+
+                // Show login modal
+                if (window.authManager && window.authManager.showLoginModal) {
+                    window.authManager.showLoginModal();
+                }
+            }
+        }
+
+        // Modal functionality (make it global)
+        window.showModal = function(modalId) {
+            console.log('Showing modal:', modalId);
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'flex';
+                modal.style.alignItems = 'center';
+                modal.style.justifyContent = 'center';
+                document.body.style.overflow = 'hidden';
+            }
+        };
+
+        window.closeModal = function(modalId) {
+            console.log('Closing modal:', modalId);
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        };
+
+        window.switchToSignup = function() {
+            closeModal('loginModal');
+            showModal('signupModal');
+        };
+
+        window.switchToLogin = function() {
+            closeModal('signupModal');
+            showModal('loginModal');
+        };
+
+        window.showForgotPasswordModal = function() {
+            closeModal('loginModal');
+            showModal('forgotPasswordModal');
+        };
+
+        window.backToLogin = function() {
+            closeModal('forgotPasswordModal');
+            showModal('loginModal');
+            return false;
+        };
+
+        // Forgot password form handler
+        async function handleForgotPassword(event) {
+            event.preventDefault();
+            console.log('Forgot password form submitted');
+
+            const email = document.getElementById('resetEmail').value.trim();
+            const errorEl = document.getElementById('resetEmailError');
+
+            // Clear previous errors
+            errorEl.style.display = 'none';
+            errorEl.textContent = '';
+
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                errorEl.textContent = 'Please enter a valid email address.';
+                errorEl.style.display = 'block';
+                return;
+            }
+
+            // Show loading state
+            document.getElementById('resetBtnText').style.display = 'none';
+            document.getElementById('resetBtnLoading').style.display = 'inline';
+            document.getElementById('resetBtn').disabled = true;
+
+            try {
+                // Wait for Supabase to be fully ready
+                await ensureSupabaseAuthReady();
+
+                const result = await window.supabaseAuth.resetPassword(email);
+
+                if (result.success) {
+                    showNotification('Reset link sent! Please check your email.', 'success');
+                    closeModal('forgotPasswordModal');
+                    document.getElementById('forgotPasswordForm').reset();
+                } else {
+                    showNotification(result.error || 'Failed to send reset email. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Password reset error:', error);
+                showNotification('Password reset error: ' + error.message, 'error');
+            } finally {
+                // Reset button state
+                document.getElementById('resetBtnText').style.display = 'inline';
+                document.getElementById('resetBtnLoading').style.display = 'none';
+                document.getElementById('resetBtn').disabled = false;
+            }
+        }
+
+        function showNotification(message, type = 'info') {
+            const notification = document.getElementById('notification');
+            const messageEl = document.getElementById('notificationMessage');
+            const iconEl = notification?.querySelector('.notification-icon i');
+
+            if (notification && messageEl) {
+                // Set message
+                messageEl.textContent = message;
+
+                // Set icon based on type
+                const icons = {
+                    'success': 'fas fa-check-circle',
+                    'error': 'fas fa-exclamation-triangle',
+                    'warning': 'fas fa-exclamation-circle',
+                    'info': 'fas fa-info-circle'
+                };
+
+                if (iconEl) {
+                    iconEl.className = icons[type] || icons.info;
+                }
+
+                // Set type class
+                notification.className = `notification-toast ${type}`;
+                notification.style.display = 'block';
+
+                // Auto-hide after 5 seconds
+                setTimeout(() => {
+                    closeNotification();
+                }, 5000);
+            }
+        }
+
+        function closeNotification() {
+            const notification = document.getElementById('notification');
+            if (notification) {
+                notification.classList.add('hiding');
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                    notification.classList.remove('hiding');
+                }, 300);
+            }
+        }
+
+        // Login form handler
+        async function handleLogin(event) {
+            event.preventDefault();
+            console.log('Login form submitted');
+
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            console.log('Login attempt:', email);
+
+            // Show loading state
+            document.getElementById('loginBtnText').style.display = 'none';
+            document.getElementById('loginBtnLoading').style.display = 'inline';
+            document.getElementById('loginBtn').disabled = true;
+
+            try {
+                // Wait for Supabase to be fully ready
+                await ensureSupabaseAuthReady();
+
+                const result = await window.supabaseAuth.signInUser(email, password);
+
+                if (result.success) {
+                    showNotification('Login successful! Welcome back!', 'success');
+                    closeModal('loginModal');
+
+                    // Login successful - stay on current page
+                } else {
+                    showNotification(result.error || 'Login failed', 'error');
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                showNotification('Login failed: ' + error.message, 'error');
+            } finally {
+                // Reset button state
+                document.getElementById('loginBtnText').style.display = 'inline';
+                document.getElementById('loginBtnLoading').style.display = 'none';
+                document.getElementById('loginBtn').disabled = false;
+            }
+        }
+
+        // Ensure Supabase auth is ready
+        async function ensureSupabaseAuthReady() {
+            return new Promise((resolve, reject) => {
+                let attempts = 0;
+                const maxAttempts = 100; // 10 seconds max wait
+
+                const checkAuth = () => {
+                    attempts++;
+
+                    // Check if there's an error
+                    if (window.supabaseAuth && window.supabaseAuth.hasError) {
+                        console.error('❌ Supabase auth has error:', window.supabaseAuth.error);
+                        reject(new Error(`Authentication system error: ${window.supabaseAuth.error.message}`));
+                        return;
+                    }
+
+                    // Check if fully ready
+                    if (window.supabaseAuth && window.supabaseAuth.isReady) {
+                        console.log('✅ Supabase auth is ready for inline handler');
+                        resolve();
+                    } else if (attempts >= maxAttempts) {
+                        console.error('❌ Supabase auth timeout in inline handler');
+
+                        // Provide detailed error info
+                        let status = 'Unknown status';
+                        if (window.supabaseAuth) {
+                            status = `Ready: ${window.supabaseAuth.isReady}, Initializing: ${window.supabaseAuth.isInitializing}, Error: ${window.supabaseAuth.hasError}`;
+                        }
+
+                        reject(new Error(`Authentication system timeout (${status}). Please refresh the page.`));
+                    } else {
+                        console.log(`⏳ Waiting for auth in inline handler... (${attempts}/${maxAttempts})`);
+                        setTimeout(checkAuth, 100);
+                    }
+                };
+
+                checkAuth();
+            });
+        }
+
+        // Signup form handler
+        async function handleSignup(event) {
+            event.preventDefault();
+            console.log('Signup form submitted');
+
+            const fullName = document.getElementById('signupFullName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+
+            // Basic validation
+            if (password !== confirmPassword) {
+                showNotification('Passwords do not match', 'error');
+                return;
+            }
+
+            if (!agreeTerms) {
+                showNotification('Please agree to the terms and conditions', 'error');
+                return;
+            }
+
+            console.log('Signup attempt:', email);
+
+            // Show loading state
+            document.getElementById('signupBtnText').style.display = 'none';
+            document.getElementById('signupBtnLoading').style.display = 'inline';
+            document.getElementById('signupBtn').disabled = true;
+
+            try {
+                // Wait for Supabase to be fully ready
+                await ensureSupabaseAuthReady();
+
+                const result = await window.supabaseAuth.signUpUser(email, password, fullName);
+
+                if (result.success) {
+                    showNotification('Account created successfully! Please check your email.', 'success');
+                    closeModal('signupModal');
+
+                    // Show login modal after short delay
+                    setTimeout(() => {
+                        showModal('loginModal');
+                    }, 2000);
+                } else {
+                    showNotification(result.error || 'Signup failed', 'error');
+                }
+            } catch (error) {
+                console.error('Signup error:', error);
+                showNotification('Signup failed: ' + error.message, 'error');
+            } finally {
+                // Reset button state
+                document.getElementById('signupBtnText').style.display = 'inline';
+                document.getElementById('signupBtnLoading').style.display = 'none';
+                document.getElementById('signupBtn').disabled = false;
+            }
+        }
+
+        // Show auth loading indicator
+        function showAuthLoading() {
+            const indicator = document.getElementById('authLoadingIndicator');
+            if (indicator) {
+                indicator.style.display = 'block';
+            }
+        }
+
+        // Hide auth loading indicator
+        function hideAuthLoading() {
+            const indicator = document.getElementById('authLoadingIndicator');
+            if (indicator) {
+                indicator.style.display = 'none';
+            }
+        }
+
+        // Check auth status periodically and show/hide loading
+        function checkAuthStatus() {
+            if (window.supabaseAuth) {
+                if (window.supabaseAuth.hasError) {
+                    showAuthError(window.supabaseAuth.error.message);
+                } else if (window.supabaseAuth.isInitializing) {
+                    showAuthLoading();
+                } else if (window.supabaseAuth.isReady) {
+                    hideAuthLoading();
+                }
+            } else {
+                showAuthLoading();
+            }
+        }
+
+        // Show auth error
+        function showAuthError(message) {
+            hideAuthLoading();
+            const errorHTML = `
+                <div style="background: #fef2f2; color: #dc2626; padding: 0.75rem 1rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 0.5rem; border: 1px solid #fecaca;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>
+                        <div style="font-weight: 500;">Authentication Error</div>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">${message}</div>
+                        <button onclick="window.location.reload()" style="background: #dc2626; color: white; border: none; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.8rem; margin-top: 0.5rem; cursor: pointer;">
+                            Refresh Page
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            let errorIndicator = document.getElementById('authErrorIndicator');
+            if (!errorIndicator) {
+                errorIndicator = document.createElement('div');
+                errorIndicator.id = 'authErrorIndicator';
+                errorIndicator.style.cssText = 'position: fixed; bottom: 2rem; right: 2rem; z-index: 1100;';
+                document.body.appendChild(errorIndicator);
+            }
+            errorIndicator.innerHTML = errorHTML;
+        }
+
+        // Start checking auth status
+        const authCheckInterval = setInterval(() => {
+            checkAuthStatus();
+
+            // Stop checking once auth is ready
+            if (window.supabaseAuth && window.supabaseAuth.isReady) {
+                clearInterval(authCheckInterval);
+                hideAuthLoading();
+            }
+        }, 200);
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('🚀 Page loaded, setting up modals...');
+
+            // Start auth status checking
+            checkAuthStatus();
+
+            // Attach click events to navigation buttons
+            const loginBtn = document.querySelector('.btn-login');
+            const signupBtn = document.querySelector('.btn-signup');
+
+            console.log('Login button found:', !!loginBtn);
+            console.log('Signup button found:', !!signupBtn);
+
+            if (loginBtn) {
+                loginBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    console.log('🔥 LOGIN BUTTON CLICKED!');
+                    showModal('loginModal');
+                });
+            }
+
+            if (signupBtn) {
+                signupBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    console.log('🔥 SIGNUP BUTTON CLICKED!');
+                    showModal('signupModal');
+                });
+            }
+
+            // Close modals when clicking outside
+            document.addEventListener('click', function (e) {
+                if (e.target.classList.contains('modal')) {
+                    closeModal('loginModal');
+                    closeModal('signupModal');
+                }
+            });
+
+            console.log('✅ Modal system ready!');
+        });
+    </script>
+
+    <script type="module" src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <scri </body>
+
+</html>
+<!-- Log
+in Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2><i class="fas fa-sign-in-alt"></i> Welcome Back</h2>
+            <button class="modal-close" data-modal="loginModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="loginEmail">
+                        <i class="fas fa-envelope"></i>
+                        Email Address
+                    </label>
+                    <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+                    <span class="error-message" id="loginEmailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="loginPassword">
+                        <i class="fas fa-lock"></i>
+                        Password
+                    </label>
+                    <div class="password-input">
+                        <input type="password" id="loginPassword" name="password" placeholder="Enter your password"
+                            required>
+                        <button type="button" class="toggle-password" data-target="loginPassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="error-message" id="loginPasswordError"></span>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                    <a href="#" class="forgot-password" id="forgotPasswordLink">Forgot Password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full" id="loginBtn">
+                    <span class="btn-text">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Sign In
+                    </span>
+                    <span class="btn-loading" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        Signing in...
+                    </span>
+                </button>
+
+                <div class="auth-divider">
+                    <span>or continue with</span>
+                </div>
+
+                <div class="social-login">
+                    <button type="button" class="btn btn-social btn-google">
+                        <i class="fab fa-google"></i>
+                        Google
+                    </button>
+                    <button type="button" class="btn btn-social btn-github">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </button>
+                </div>
+
+                <div class="auth-switch">
+                    <p>Don't have an account? <a href="#" id="switchToSignup" class="switch-link">Create one here</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Register Modal -->
+<div id="signupModal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2><i class="fas fa-user-plus"></i> Create Account</h2>
+            <button class="modal-close" data-modal="signupModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form id="signupForm" class="auth-form">
+                <div class="form-group">
+                    <label for="signupFullName">
+                        <i class="fas fa-user"></i>
+                        Full Name
+                    </label>
+                    <input type="text" id="signupFullName" name="fullName" placeholder="Enter your full name" required>
+                    <span class="error-message" id="signupFullNameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="signupEmail">
+                        <i class="fas fa-envelope"></i>
+                        Email Address
+                    </label>
+                    <input type="email" id="signupEmail" name="email" placeholder="Enter your email" required>
+                    <span class="error-message" id="signupEmailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="signupPassword">
+                        <i class="fas fa-lock"></i>
+                        Password
+                    </label>
+                    <div class="password-input">
+                        <input type="password" id="signupPassword" name="password"
+                            placeholder="Create a strong password" required>
+                        <button type="button" class="toggle-password" data-target="signupPassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar">
+                            <div class="strength-fill"></div>
+                        </div>
+                        <span class="strength-text">Password strength</span>
+                    </div>
+                    <span class="error-message" id="signupPasswordError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">
+                        <i class="fas fa-lock"></i>
+                        Confirm Password
+                    </label>
+                    <div class="password-input">
+                        <input type="password" id="confirmPassword" name="confirmPassword"
+                            placeholder="Confirm your password" required>
+                        <button type="button" class="toggle-password" data-target="confirmPassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <span class="error-message" id="confirmPasswordError"></span>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <span class="checkmark"></span>
+                        I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#"
+                            class="privacy-link">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full" id="signupBtn">
+                    <span class="btn-text">
+                        <i class="fas fa-user-plus"></i>
+                        Create Account
+                    </span>
+                    <span class="btn-loading" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        Creating account...
+                    </span>
+                </button>
+
+                <div class="auth-divider">
+                    <span>or continue with</span>
+                </div>
+
+                <div class="social-login">
+                    <button type="button" class="btn btn-social btn-google">
+                        <i class="fab fa-google"></i>
+                        Google
+                    </button>
+                    <button type="button" class="btn btn-social btn-github">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </button>
+                </div>
+
+                <div class="auth-switch">
+                    <p>Already have an account? <a href="#" id="switchToLogin" class="switch-link">Sign in here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div id="successModal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content success-modal">
+        <div class="modal-header">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <button class="modal-close" data-modal="successModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <h2 id="successTitle">Success!</h2>
+            <p id="successMessage">Your account has been created successfully.</p>
+            <button class="btn btn-primary" id="successOkBtn">Continue</button>
+        </div>
+    </div>
+</div>
+
+
+</div>
+<script ty pe="module" src="supabase-config.js"></script>
+<script src="auth.js"></script>
+<script src="script.js"></script>
+<script>
+    // Immediate modal functionality - no external dependencies
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('🚀 Inline script loaded');
+
+        // Test if modals exist
+        const loginModal = document.getElementById('loginModal');
+        const signupModal = document.getElementById('signupModal');
+        const loginBtn = document.querySelector('.btn-login');
+        const signupBtn = document.querySelector('.btn-signup');
+
+        console.log('Login modal exists:', !!loginModal);
+        console.log('Signup modal exists:', !!signupModal);
+        console.log('Login button exists:', !!loginBtn);
+        console.log('Signup button exists:', !!signupBtn);
+
+        // Simple modal show/hide functions
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                console.log('Showing modal:', modalId);
+                modal.style.display = 'flex';
+                modal.style.alignItems = 'center';
+                modal.style.justifyContent = 'center';
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function hideModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                console.log('Hiding modal:', modalId);
+                modal.style.display = 'none';
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Attach click events to login button
+        if (loginBtn) {
+            console.log('Attaching login button event');
+            loginBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                console.log('🔥 LOGIN BUTTON CLICKED!');
+                showModal('loginModal');
+            });
+        }
+
+        // Attach click events to signup button
+        if (signupBtn) {
+            console.log('Attaching signup button event');
+            signupBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                console.log('🔥 SIGNUP BUTTON CLICKED!');
+                showModal('signupModal');
+            });
+        }
+
+        // Close modal when clicking X or outside
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('modal-close') ||
+                e.target.classList.contains('modal-overlay') ||
+                e.target.classList.contains('modal')) {
+                console.log('Closing modal');
+                hideModal('loginModal');
+                hideModal('signupModal');
+            }
+        });
+
+        // Global test functions
+        window.testLogin = function () {
+            console.log('Testing login modal...');
+            showModal('loginModal');
+        };
+
+        window.testSignup = function () {
+            console.log('Testing signup modal...');
+            showModal('signupModal');
+        };
+
+        window.closeModals = function () {
+            hideModal('loginModal');
+            hideModal('signupModal');
+        };
+
+        console.log('✅ Modal system ready');
+        console.log('Try: testLogin() or testSignup() in console');
+    });
+</script>
+
+<!-- Application Scripts -->
+<script src="assets/js/logout-confirmation.js"></script>
+<script src="assets/js/supabase-config.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/xendit-payment.js"></script>
+<script src="assets/js/profile-manager.js"></script>
+<script src="assets/js/particles.js"></script>
+<script src="assets/js/code-animation.js"></script>
+<script src="assets/js/settings-manager.js"></script>
+<script src="assets/js/courses-data.js"></script>
+<script src="assets/js/script.js"></script>
+
+
+</body>
+
+</html>

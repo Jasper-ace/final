@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partners - CodeMaster Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .partners-hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .partners-hero::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="60" height="60" xmlns="http://www.w3.org/2000/svg"><path d="M30 0 L30 60 M0 30 L60 30" stroke="white" stroke-width="0.5" opacity="0.1"/></svg>');
+            animation: movePattern 30s linear infinite;
+        }
+        @keyframes movePattern {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
+        }
+        .partners-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .partner-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease backwards;
+            position: relative;
+            overflow: hidden;
+        }
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        .partner-card:hover::before {
+            left: 100%;
+        }
+        .partner-card:nth-child(1) { animation-delay: 0.1s; }
+        .partner-card:nth-child(2) { animation-delay: 0.2s; }
+        .partner-card:nth-child(3) { animation-delay: 0.3s; }
+        .partner-card:nth-child(4) { animation-delay: 0.4s; }
+        .partner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3);
+        }
+        .partner-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            color: white;
+        }
+        .benefits-section {
+            background: #f8fafc;
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.6s ease backwards;
+        }
+        .benefit-item:nth-child(1) { animation-delay: 0.1s; }
+        .benefit-item:nth-child(2) { animation-delay: 0.2s; }
+        .benefit-item:nth-child(3) { animation-delay: 0.3s; }
+        .benefit-item:nth-child(4) { animation-delay: 0.4s; }
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin: 4rem 0;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-code"></i>
+                <span>CodeMaster Academy</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#courses">Courses</a></li>
+                <li><a href="about-us.html">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="partners-hero">
+        <div class="container">
+            <h1><i class="fas fa-handshake"></i> Our Partners</h1>
+            <p style="font-size: 1.3rem; opacity: 0.95; animation: fadeInUp 0.8s ease 0.2s backwards; position: relative; z-index: 1;">Building the future of education together</p>
+        </div>
+    </section>
+
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; color: #1e293b; margin-bottom: 1rem; text-align: center;">Trusted by Industry Leaders</h2>
+            <p style="text-align: center; color: #64748b; margin-bottom: 3rem; font-size: 1.1rem;">We collaborate with top companies to provide the best learning experience</p>
+            
+            <div class="partner-grid">
+                <div class="partner-card">
+                    <div class="partner-icon"><i class="fab fa-google"></i></div>
+                    <h3 style="color: #1e293b; margin-bottom: 0.8rem;">Google</h3>
+                    <p style="color: #64748b;">Cloud Platform Integration</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-icon"><i class="fab fa-microsoft"></i></div>
+                    <h3 style="color: #1e293b; margin-bottom: 0.8rem;">Microsoft</h3>
+                    <p style="color: #64748b;">Azure Services Partner</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-icon"><i class="fab fa-aws"></i></div>
+                    <h3 style="color: #1e293b; margin-bottom: 0.8rem;">Amazon</h3>
+                    <p style="color: #64748b;">AWS Education Partner</p>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-icon"><i class="fab fa-github"></i></div>
+                    <h3 style="color: #1e293b; margin-bottom: 0.8rem;">GitHub</h3>
+                    <p style="color: #64748b;">Education Program Partner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits-section">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; color: #1e293b; margin-bottom: 3rem; text-align: center;">Partnership Benefits</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                    <div>
+                        <h3 style="color: #1e293b; margin-bottom: 0.5rem; font-size: 1.3rem;">Access to Talent Pool</h3>
+                        <p style="color: #64748b; line-height: 1.6;">Connect with thousands of skilled developers and tech professionals from our student community.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-bullhorn"></i></div>
+                    <div>
+                        <h3 style="color: #1e293b; margin-bottom: 0.5rem; font-size: 1.3rem;">Brand Visibility</h3>
+                        <p style="color: #64748b; line-height: 1.6;">Showcase your brand to our engaged audience of learners and professionals.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-lightbulb"></i></div>
+                    <div>
+                        <h3 style="color: #1e293b; margin-bottom: 0.5rem; font-size: 1.3rem;">Co-Create Content</h3>
+                        <p style="color: #64748b; line-height: 1.6;">Collaborate on course development and share your expertise with our students.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                    <div>
+                        <h3 style="color: #1e293b; margin-bottom: 0.5rem; font-size: 1.3rem;">Growth Opportunities</h3>
+                        <p style="color: #64748b; line-height: 1.6;">Expand your reach and grow your business through our platform and network.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <div class="cta-section">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Become a Partner</h2>
+                <p style="font-size: 1.2rem; opacity: 0.95; margin-bottom: 0.5rem;">Join us in shaping the future of online education</p>
+                <p style="font-size: 1.1rem; opacity: 0.9;"><i class="fas fa-envelope"></i> partnerships@codemasteracademy.com</p>
+                <a href="mailto:partnerships@codemasteracademy.com" class="cta-btn">
+                    <i class="fas fa-paper-plane"></i> Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>CodeMaster Academy</span>
+                    </div>
+                    <p>Empowering the next generation of programmers with world-class education and practical skills.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Courses</h4>
+                    <ul>
+                        <li><a href="index.html#courses">JavaScript</a></li>
+                        <li><a href="index.html#courses">Python</a></li>
+                        <li><a href="index.html#courses">React</a></li>
+                        <li><a href="index.html#courses">Node.js</a></li>
+                        <li><a href="index.html#courses">Data Science</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="help-center.html">Help Center</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CodeMaster Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

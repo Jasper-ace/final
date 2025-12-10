@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed - CodeMaster Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .failed-container {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .failed-icon {
+            width: 100px;
+            height: 100px;
+            background: #dc3545;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: shake 0.5s ease-out;
+        }
+        .failed-icon i {
+            font-size: 50px;
+            color: white;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        .reasons {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        .reasons h3 {
+            color: #856404;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .reasons ul {
+            color: #856404;
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+        .reasons li {
+            margin-bottom: 0.5rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 0.5rem;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .btn-secondary {
+            background: #6c757d;
+        }
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        .support-info {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        .support-info p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="failed-container">
+        <div class="failed-icon">
+            <i class="fas fa-times"></i>
+        </div>
+        <h1>Payment Failed</h1>
+        <p>Unfortunately, your payment could not be processed. Please try again.</p>
+        
+        <div class="reasons">
+            <h3><i class="fas fa-exclamation-triangle"></i> Common Reasons for Payment Failure:</h3>
+            <ul>
+                <li>Insufficient funds in your account</li>
+                <li>Payment was cancelled by user</li>
+                <li>Network connection issues</li>
+                <li>Payment timeout</li>
+                <li>Invalid payment details</li>
+            </ul>
+        </div>
+
+        <div>
+            <a href="index.html" class="btn">
+                <i class="fas fa-redo"></i> Try Again
+            </a>
+            <a href="index.html" class="btn btn-secondary">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
+
+        <div class="support-info">
+            <p><strong>Need Help?</strong></p>
+            <p><i class="fas fa-envelope"></i> Email: support@codemasteracademy.com</p>
+            <p><i class="fas fa-phone"></i> Phone: +63 123 456 7890</p>
+        </div>
+    </div>
+
+    <script>
+        // Clear pending payment
+        sessionStorage.removeItem('pendingPayment');
+
+        // Log failure for analytics
+        console.log('Payment failed for course:', new URLSearchParams(window.location.search).get('course'));
+    </script>
+</body>
+</html>

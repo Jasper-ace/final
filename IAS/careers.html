@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - CodeMaster Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .careers-hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .careers-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
+            animation: float 20s linear infinite;
+        }
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100px); }
+        }
+        .careers-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+        .careers-hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+            position: relative;
+            z-index: 1;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .perk-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease backwards;
+        }
+        .perk-card:nth-child(1) { animation-delay: 0.1s; }
+        .perk-card:nth-child(2) { animation-delay: 0.2s; }
+        .perk-card:nth-child(3) { animation-delay: 0.3s; }
+        .perk-card:nth-child(4) { animation-delay: 0.4s; }
+        .perk-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3);
+        }
+        .perk-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+        .job-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            animation: fadeInUp 0.6s ease backwards;
+        }
+        .job-card:nth-child(1) { animation-delay: 0.2s; }
+        .job-card:nth-child(2) { animation-delay: 0.3s; }
+        .job-card:nth-child(3) { animation-delay: 0.4s; }
+        .job-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.2);
+            border-left-color: #667eea;
+        }
+        .job-card h3 {
+            color: #2563eb;
+            margin-bottom: 0.8rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .job-meta {
+            color: #64748b;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .job-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .apply-btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .apply-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin: 4rem 0;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-code"></i>
+                <span>CodeMaster Academy</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#courses">Courses</a></li>
+                <li><a href="about-us.html">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="careers-hero">
+        <div class="container">
+            <h1>Join Our Team</h1>
+            <p>Help us shape the future of online education</p>
+        </div>
+    </section>
+
+    <section style="padding: 4rem 0; background: #f8fafc;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; color: #1e293b; margin-bottom: 1rem; text-align: center;">Why Work With Us?</h2>
+            <p style="text-align: center; color: #64748b; margin-bottom: 3rem; font-size: 1.1rem;">Join a team that's passionate about education and innovation</p>
+            
+            <div class="perks-grid">
+                <div class="perk-card">
+                    <div class="perk-icon"><i class="fas fa-home"></i></div>
+                    <h3 style="color: #1e293b; margin-bottom: 0.5rem;">Remote First</h3>
+                    <p style="color: #64748b;">Work from anywhere in the world</p>
+                </div>
+                <div class="perk-card">
+                    <div class="perk-icon"><i class="fas fa-clock"></i></div>
+                    <h3 style="color: #1e293b; margin-bottom: 0.5rem;">Flexible Hours</h3>
+                    <p style="color: #64748b;">Choose your own schedule</p>
+                </div>
+                <div class="perk-card">
+                    <div class="perk-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3 style="color: #1e293b; margin-bottom: 0.5rem;">Learning Budget</h3>
+                    <p style="color: #64748b;">Continuous professional development</p>
+                </div>
+                <div class="perk-card">
+                    <div class="perk-icon"><i class="fas fa-heart"></i></div>
+                    <h3 style="color: #1e293b; margin-bottom: 0.5rem;">Health Benefits</h3>
+                    <p style="color: #64748b;">Comprehensive health coverage</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto;">
+                <h2 style="font-size: 2.5rem; color: #1e293b; margin-bottom: 3rem; text-align: center;">Open Positions</h2>
+                
+                <div class="job-card">
+                    <h3><i class="fas fa-laptop-code"></i> Senior Course Developer</h3>
+                    <div class="job-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+                        <span><i class="fas fa-briefcase"></i> Full-time</span>
+                        <span><i class="fas fa-dollar-sign"></i> Competitive Salary</span>
+                    </div>
+                    <p style="color: #475569; margin-bottom: 1rem; line-height: 1.6;">Create engaging programming courses and help students achieve their goals. You'll work with cutting-edge technologies and collaborate with a passionate team.</p>
+                    <ul style="color: #64748b; margin-bottom: 1rem; padding-left: 1.5rem;">
+                        <li>5+ years of software development experience</li>
+                        <li>Strong teaching and communication skills</li>
+                        <li>Experience creating educational content</li>
+                    </ul>
+                    <a href="mailto:careers@codemasteracademy.com?subject=Application: Senior Course Developer" class="apply-btn">Apply Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="job-card">
+                    <h3><i class="fas fa-user-friends"></i> Student Success Manager</h3>
+                    <div class="job-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+                        <span><i class="fas fa-briefcase"></i> Full-time</span>
+                        <span><i class="fas fa-dollar-sign"></i> Competitive Salary</span>
+                    </div>
+                    <p style="color: #475569; margin-bottom: 1rem; line-height: 1.6;">Support our students and ensure they have the best learning experience. Be the friendly face that helps learners overcome challenges and achieve success.</p>
+                    <ul style="color: #64748b; margin-bottom: 1rem; padding-left: 1.5rem;">
+                        <li>3+ years in customer success or support</li>
+                        <li>Excellent communication skills</li>
+                        <li>Passion for education and helping others</li>
+                    </ul>
+                    <a href="mailto:careers@codemasteracademy.com?subject=Application: Student Success Manager" class="apply-btn">Apply Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="job-card">
+                    <h3><i class="fas fa-paint-brush"></i> UI/UX Designer</h3>
+                    <div class="job-meta">
+                        <span><i class="fas fa-map-marker-alt"></i> Remote</span>
+                        <span><i class="fas fa-briefcase"></i> Full-time</span>
+                        <span><i class="fas fa-dollar-sign"></i> Competitive Salary</span>
+                    </div>
+                    <p style="color: #475569; margin-bottom: 1rem; line-height: 1.6;">Design beautiful and intuitive learning experiences. Shape how millions of students interact with our platform.</p>
+                    <ul style="color: #64748b; margin-bottom: 1rem; padding-left: 1.5rem;">
+                        <li>4+ years of UI/UX design experience</li>
+                        <li>Strong portfolio showcasing web applications</li>
+                        <li>Proficiency in Figma and design systems</li>
+                    </ul>
+                    <a href="mailto:careers@codemasteracademy.com?subject=Application: UI/UX Designer" class="apply-btn">Apply Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h2>Don't See Your Role?</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95;">We're always looking for talented people. Send us your resume!</p>
+                <a href="mailto:careers@codemasteracademy.com?subject=General Application" style="display: inline-block; padding: 1rem 2.5rem; background: white; color: #667eea; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">Send Your Resume <i class="fas fa-paper-plane"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>CodeMaster Academy</span>
+                    </div>
+                    <p>Empowering the next generation of programmers with world-class education and practical skills.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Courses</h4>
+                    <ul>
+                        <li><a href="index.html#courses">JavaScript</a></li>
+                        <li><a href="index.html#courses">Python</a></li>
+                        <li><a href="index.html#courses">React</a></li>
+                        <li><a href="index.html#courses">Node.js</a></li>
+                        <li><a href="index.html#courses">Data Science</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="help-center.html">Help Center</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CodeMaster Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

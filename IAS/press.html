@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press & Media - CodeMaster Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .press-hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .press-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px);
+            animation: slide 20s linear infinite;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(28px); }
+        }
+        .press-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .press-kit-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+        .press-kit-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 3rem;
+            color: white;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease backwards;
+        }
+        .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; }
+        .stat-card:nth-child(4) { animation-delay: 0.4s; }
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(102, 126, 234, 0.3);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        .contact-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        .contact-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .contact-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-code"></i>
+                <span>CodeMaster Academy</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#courses">Courses</a></li>
+                <li><a href="about-us.html">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="press-hero">
+        <div class="container">
+            <h1><i class="fas fa-newspaper"></i> Press & Media</h1>
+            <p style="font-size: 1.3rem; opacity: 0.95; animation: fadeInUp 0.8s ease 0.2s backwards; position: relative; z-index: 1;">Resources and information for journalists and media</p>
+        </div>
+    </section>
+
+    <section style="padding: 4rem 0;">
+        <div class="container">
+            <div class="press-kit-card">
+                <div class="press-kit-icon">
+                    <i class="fas fa-file-download"></i>
+                </div>
+                <h2 style="color: #1e293b; margin-bottom: 1rem; font-size: 2rem;">Press Kit</h2>
+                <p style="color: #64748b; margin-bottom: 2rem; line-height: 1.6;">Download our official logos, brand assets, and company information for your articles and publications.</p>
+                <button style="padding: 1rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;" onclick="alert('Press kit will be available soon!')">
+                    <i class="fas fa-download"></i> Download Press Kit
+                </button>
+            </div>
+
+            <h2 style="font-size: 2.5rem; color: #1e293b; margin-bottom: 2rem; text-align: center;">CodeMaster Academy by the Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">50K+</div>
+                    <p style="color: #64748b; font-weight: 600;">Active Students</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">200+</div>
+                    <p style="color: #64748b; font-weight: 600;">Expert Instructors</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <p style="color: #64748b; font-weight: 600;">Courses Available</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">95%</div>
+                    <p style="color: #64748b; font-weight: 600;">Success Rate</p>
+                </div>
+            </div>
+
+            <div style="max-width: 800px; margin: 4rem auto;">
+                <h2 style="font-size: 2rem; color: #1e293b; margin-bottom: 2rem; text-align: center;">Recent Press Coverage</h2>
+                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); margin-bottom: 1.5rem; animation: fadeInUp 0.6s ease 0.3s backwards;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: #1e293b; margin: 0;">Tech Innovation Award 2024</h3>
+                            <p style="color: #64748b; margin: 0; font-size: 0.9rem;">December 2024</p>
+                        </div>
+                    </div>
+                    <p style="color: #475569; line-height: 1.6;">CodeMaster Academy recognized for excellence in online education and innovative learning platform.</p>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); animation: fadeInUp 0.6s ease 0.4s backwards;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: #1e293b; margin: 0;">Best EdTech Platform</h3>
+                            <p style="color: #64748b; margin: 0; font-size: 0.9rem;">November 2024</p>
+                        </div>
+                    </div>
+                    <p style="color: #475569; line-height: 1.6;">Awarded "Best EdTech Platform" by the Global Education Technology Association.</p>
+                </div>
+            </div>
+
+            <div class="contact-card">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Media Inquiries</h2>
+                <p style="font-size: 1.2rem; opacity: 0.95; margin-bottom: 0.5rem;">For press inquiries, interviews, or more information</p>
+                <p style="font-size: 1.1rem; opacity: 0.9;"><i class="fas fa-envelope"></i> press@codemasteracademy.com</p>
+                <a href="mailto:press@codemasteracademy.com" class="contact-btn">
+                    <i class="fas fa-paper-plane"></i> Contact Press Team
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-code"></i>
+                        <span>CodeMaster Academy</span>
+                    </div>
+                    <p>Empowering the next generation of programmers with world-class education and practical skills.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Courses</h4>
+                    <ul>
+                        <li><a href="index.html#courses">JavaScript</a></li>
+                        <li><a href="index.html#courses">Python</a></li>
+                        <li><a href="index.html#courses">React</a></li>
+                        <li><a href="index.html#courses">Node.js</a></li>
+                        <li><a href="index.html#courses">Data Science</a></li>
+                    </ul>
+                </div>
+               <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="press.html">Press</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="help-center.html">Help Center</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CodeMaster Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

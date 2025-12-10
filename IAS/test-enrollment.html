@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Enrollment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background: #f3f4f6;
+        }
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Course Enrollment</h1>
+    <p>This page will help you test enrolling in a course manually.</p>
+    
+    <div>
+        <button onclick="testEnrollment()">Enroll in Test Course</button>
+        <button onclick="checkEnrollments()">Check My Enrollments</button>
+        <button onclick="checkAuth()">Check Authentication</button>
+    </div>
+    
+    <div id="result" class="result" style="display: none;"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="assets/js/supabase-config.js"></script>
+    <script>
+        function showResult(message, isError = false) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = message;
+            resultDiv.className = 'result ' + (isError ? 'error' : 'success');
+            resultDiv.style.display = 'block';
+        }
+
+        async function checkAuth() {
+            try {
+                const { data: { session } } = await window.supabaseDirect.auth.getSession();
+                
+                if (session && session.user) {
+                    showResult(`✅ Logged in as: ${session.user.email}\nUser ID: ${session.user.id}`);
+                } else {
+                    showResult('❌ Not logged in. Please login first.', true);
+                }
+            } catch (error) {
+                showResult(`❌ Error: ${error.message}`, true);
+            }
+        }
+
+        async function testEnrollment() {
+            try {
+                // Check if user is logged in
+                const { data: { session } } = await window.supabaseDirect.auth.getSession();
+                
+                if (!session || !session.user) {
+                    showResult('❌ Please login first!', true);
+                    return;
+                }
+
+                // Test course ID (first course from courses-data.js - numeric ID)
+                const testCourseId = 1; // "Complete JavaScript Mastery"
+
+                // Check if already enrolled
+                const { data: existing } = await window.supabaseDirect
+                    .from('user_courses')
+                    .select('*')
+                    .eq('user_id', session.user.id)
+                    .eq('course_id', testCourseId)
+                    .single();
+
+                if (existing) {
+                    showResult('ℹ️ Already enrolled in this course!');
+                    return;
+                }
+
+                // Enroll user
+                const { data, error } = await window.supabaseDirect
+                    .from('user_courses')
+                    .insert([
+                        {
+                            user_id: session.user.id,
+                            course_id: testCourseId,
+                            progress: 0,
+                            enrolled_at: new Date().toISOString()
+                        }
+                    ])
+                    .select();
+
+                if (error) {
+                    throw error;
+                }
+
+                showResult(`✅ Successfully enrolled!\nCourse ID: ${testCourseId}\nEnrollment ID: ${data[0].id}`);
+            } catch (error) {
+                showResult(`❌ Enrollment failed: ${error.message}`, true);
+                console.error('Full error:', error);
+            }
+        }
+
+        async function checkEnrollments() {
+            try {
+                const { data: { session } } = await window.supabaseDirect.auth.getSession();
+                
+                if (!session || !session.user) {
+                    showResult('❌ Please login first!', true);
+                    return;
+                }
+
+                const { data, error } = await window.supabaseDirect
+                    .from('user_courses')
+                    .select('*')
+                    .eq('user_id', session.user.id);
+
+                if (error) {
+                    throw error;
+                }
+
+                if (data && data.length > 0) {
+                    const courses = data.map(c => `- ${c.course_id} (${c.progress}%)`).join('\n');
+                    showResult(`✅ Found ${data.length} enrollment(s):\n${courses}`);
+                } else {
+                    showResult('ℹ️ No enrollments found.');
+                }
+            } catch (error) {
+                showResult(`❌ Error: ${error.message}`, true);
+                console.error('Full error:', error);
+            }
+        }
+
+        // Auto-check auth on load
+        setTimeout(() => {
+            checkAuth();
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - CodeMaster Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .help-hero { padding: 8rem 0 4rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; }
+        .help-hero h1 { font-size: 3rem; margin-bottom: 1rem; animation: fadeInUp 0.6s; }
+        .help-hero p { font-size: 1.2rem; opacity: 0.9; animation: fadeInUp 0.8s; }
+        .search-box { max-width: 600px; margin: 2rem auto 0; position: relative; animation: fadeInUp 1s; }
+        .search-box input { width: 100%; padding: 1rem 3rem 1rem 1.5rem; border: none; border-radius: 50px; font-size: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .search-box i { position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); color: #667eea; font-size: 1.2rem; }
+        .faq-section { padding: 4rem 0; }
+        .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .faq-card { background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.3s; cursor: pointer; }
+        .faq-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        .faq-card i { font-size: 2.5rem; color: #667eea; margin-bottom: 1rem; }
+        .faq-card h3 { color: #1e293b; margin-bottom: 0.5rem; }
+        .faq-card p { color: #64748b; font-size: 0.95rem; }
+        .contact-cta { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 4rem 0; text-align: center; color: white; }
+        .contact-cta h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .contact-cta .btn { display: inline-block; padding: 1rem 2.5rem; background: white; color: #667eea; border-radius: 50px; text-decoration: none; font-weight: 600; margin-top: 1rem; transition: all 0.3s; }
+        .contact-cta .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-code"></i>
+                <span>CodeMaster Academy</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#courses">Courses</a></li>
+                <li><a href="about-us.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="help-hero">
+        <div class="container">
+            <h1><i class="fas fa-question-circle"></i> How Can We Help?</h1>
+            <p>Search our knowledge base or browse categories below</p>
+            <div class="search-box">
+                <input type="text" placeholder="Search for answers...">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; color: #1e293b; margin-bottom: 1rem;">Popular Topics</h2>
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Getting Started</h3>
+                    <p>Learn how to enroll in courses and start your learning journey</p>
+                </div>
+                <div class="faq-card">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Payments & Billing</h3>
+                    <p>Information about payments, refunds, and billing issues</p>
+                </div>
+                <div class="faq-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certificates</h3>
+                    <p>How to earn and download your course certificates</p>
+                </div>
+                <div class="faq-card">
+                    <i class="fas fa-user-circle"></i>
+                    <h3>Account Settings</h3>
+                    <p>Manage your profile, password, and preferences</p>
+                </div>
+                <div class="faq-card">
+                    <i class="fas fa-video"></i>
+                    <h3>Technical Issues</h3>
+                    <p>Troubleshoot video playback and platform issues</p>
+                </div>
+                <div class="faq-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile App</h3>
+                    <p>Learn on the go with our mobile applications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-cta">
+        <div class="container">
+            <h2>Still Need Help?</h2>
+            <p style="font-size: 1.1rem; opacity: 0.9;">Our support team is here for you 24/7</p>
+            <a href="mailto:support@codemasteracademy.com" class="btn">
+                <i class="fas fa-envelope"></i> Contact Support
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 CodeMaster Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
