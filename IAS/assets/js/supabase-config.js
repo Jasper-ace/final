@@ -443,10 +443,32 @@ async function signInUser(email, password) {
 
 async function resetPassword(email) {
     try {
-        // Get the current path to determine the correct redirect URL
-        const currentPath = window.location.pathname;
-        const basePath = currentPath.includes('/IAS/') ? '/IAS' : '';
-        const redirectUrl = window.location.origin + basePath + '/reset-password.html';
+        // Determine the correct redirect URL based on environment
+        let redirectUrl;
+        
+        if (window.location.hostname === 'jasper-ace.github.io') {
+            // Production GitHub Pages URL
+            redirectUrl = 'https://jasper-ace.github.io/IAS/reset-password.html';
+        } else if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            // Local development - use the exact current URL structure
+            const port = window.location.port;
+            const protocol = window.location.protocol;
+            const hostname = window.location.hostname;
+            const currentPath = window.location.pathname;
+            
+            // Extract the base path (everything before the current page)
+            const pathParts = currentPath.split('/');
+            pathParts.pop(); // Remove current page
+            const basePath = pathParts.join('/');
+            
+            redirectUrl = `${protocol}//${hostname}:${port}${basePath}/reset-password.html`;
+            console.log('Local development redirect URL constructed:', redirectUrl);
+        } else {
+            // Fallback - try to construct from current location
+            const currentPath = window.location.pathname;
+            const basePath = currentPath.includes('/IAS/') ? '/IAS' : '';
+            redirectUrl = window.location.origin + basePath + '/reset-password.html';
+        }
         
         console.log('Reset password redirect URL:', redirectUrl);
         
