@@ -447,8 +447,23 @@ async function resetPassword(email) {
         let redirectUrl;
         
         if (window.location.hostname === 'jasper-ace.github.io') {
-            // Production GitHub Pages URL
-            redirectUrl = 'https://jasper-ace.github.io/IAS/reset-password.html';
+            // Production GitHub Pages URL - detect the correct path
+            const currentPath = window.location.pathname;
+            let basePath = '';
+            
+            if (currentPath.includes('/final/IAS/')) {
+                basePath = '/final/IAS';
+            } else if (currentPath.includes('/IAS/')) {
+                basePath = '/IAS';
+            } else {
+                // Fallback - extract base path dynamically
+                const pathParts = currentPath.split('/');
+                pathParts.pop(); // Remove current page
+                basePath = pathParts.join('/');
+            }
+            
+            redirectUrl = `https://jasper-ace.github.io${basePath}/reset-password.html`;
+            console.log('GitHub Pages redirect URL:', redirectUrl);
         } else if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
             // Local development - use the exact current URL structure
             const port = window.location.port;
