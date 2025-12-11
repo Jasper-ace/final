@@ -487,9 +487,18 @@ async function resetPassword(email) {
         
         console.log('Reset password redirect URL:', redirectUrl);
         
-        const { error } = await supabase.auth.resetPasswordForEmail(email, { 
+        // Force the correct redirect URL for production
+        const options = { 
             redirectTo: redirectUrl 
-        });
+        };
+        
+        // Additional options to ensure correct redirect
+        if (window.location.hostname === 'jasper-ace.github.io') {
+            options.redirectTo = 'https://jasper-ace.github.io/final/IAS/reset-password.html';
+            console.log('Forcing production redirect URL:', options.redirectTo);
+        }
+        
+        const { error } = await supabase.auth.resetPasswordForEmail(email, options);
         
         if (error) throw error;
         return { success: true };
