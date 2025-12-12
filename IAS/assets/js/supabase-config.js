@@ -395,10 +395,39 @@ async function signUpUser(email, password, fullName) {
             throw new Error('Supabase client not initialized');
         }
         
+        // Determine the correct redirect URL for email confirmation
+        let confirmationUrl;
+        
+        if (window.location.hostname === 'jasper-ace.github.io') {
+            // Production GitHub Pages URL
+            confirmationUrl = 'https://jasper-ace.github.io/final/IAS/';
+        } else if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            // Local development
+            const port = window.location.port;
+            const protocol = window.location.protocol;
+            const hostname = window.location.hostname;
+            const currentPath = window.location.pathname;
+            
+            // Extract the base path
+            const pathParts = currentPath.split('/');
+            pathParts.pop(); // Remove current page
+            const basePath = pathParts.join('/');
+            
+            confirmationUrl = `${protocol}//${hostname}:${port}${basePath}/`;
+        } else {
+            // Fallback
+            confirmationUrl = window.location.origin + '/';
+        }
+        
+        console.log('Email confirmation redirect URL:', confirmationUrl);
+        
         const { data, error } = await supabase.auth.signUp({
             email: email,
             password: password,
-            options: { data: { full_name: fullName } }
+            options: { 
+                data: { full_name: fullName },
+                emailRedirectTo: confirmationUrl
+            }
         });
         if (error) throw error;
         if (data.user) { await saveUserProfile(data.user.id, fullName, email); }

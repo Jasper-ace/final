@@ -1211,6 +1211,107 @@ in Modal -->
 <script src="assets/js/courses-data.js"></script>
 <script src="assets/js/script.js"></script>
 
+<!-- Email Verification Handler -->
+<script>
+    // Handle email verification and signup redirects
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check for authentication tokens in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const hashParams = new URLSearchParams(window.location.hash.substring(1));
+        
+        // Get tokens from either location
+        const accessToken = urlParams.get('access_token') || hashParams.get('access_token');
+        const type = urlParams.get('type') || hashParams.get('type');
+        const error = urlParams.get('error') || hashParams.get('error');
+        const errorDescription = urlParams.get('error_description') || hashParams.get('error_description');
+        
+        console.log('Checking for auth tokens:', { accessToken: !!accessToken, type, error });
+        
+        if (error) {
+            // Handle authentication errors
+            let errorMsg = 'Authentication error occurred.';
+            if (error === 'access_denied') {
+                errorMsg = 'Access denied. Please try again.';
+            }
+            showAuthNotification(errorMsg, 'error');
+            
+            // Clean up URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+            return;
+        }
+        
+        if (accessToken && type) {
+            if (type === 'signup') {
+                // Handle email verification
+                console.log('✅ Email verification successful!');
+                showAuthNotification('Email verified successfully! You can now log in.', 'success');
+                
+                // Clean up URL after 2 seconds
+                setTimeout(() => {
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }, 2000);
+                
+            } else if (type === 'recovery') {
+                // Redirect to reset password page with token
+                console.log('🔄 Redirecting to password reset...');
+                const resetUrl = `reset-password.html${window.location.hash}`;
+                window.location.href = resetUrl;
+                
+            } else {
+                // Handle other auth types
+                console.log('✅ Authentication successful!');
+                showAuthNotification('Authentication successful!', 'success');
+                
+                // Clean up URL
+                setTimeout(() => {
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }, 2000);
+            }
+        }
+    });
+    
+    // Notification function for auth messages
+    function showAuthNotification(message, type = 'info') {
+        // Try to use existing notification system first
+        if (window.showNotification) {
+            window.showNotification(message, type);
+            return;
+        }
+        
+        // Fallback: create simple notification
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10000;
+            background: ${type === 'success' ? '#d4edda' : type === 'error' ? '#f8d7da' : '#d1ecf1'};
+            color: ${type === 'success' ? '#155724' : type === 'error' ? '#721c24' : '#0c5460'};
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            max-width: 400px;
+            animation: slideInRight 0.3s ease;
+        `;
+        
+        notification.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                <span>${message}</span>
+                <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; margin-left: auto;">&times;</button>
+            </div>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            if (notification.parentElement) {
+                notification.remove();
+            }
+        }, 5000);
+    }
+</script>
 
 </body>
 
